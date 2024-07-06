@@ -3,6 +3,7 @@ const db = require('../../database/oauth');
 async function handler(req, res) {
     // Getting authorization code from Pipedrive
     const authCode = req.query.code;
+    console.log(authCode);
 
     try {
         const tokens = await req.apiClient.authorize(authCode);
