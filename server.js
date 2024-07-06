@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./middlewares/error-handler');
 const apiClient = require('./middlewares/api-client');
 const jwtCheck = require('./middlewares/jwt-check');
-const config = require('./config');
+require("dotenv").config()
 
 const path = require('path');
 const app = express();
@@ -22,14 +22,18 @@ app.get('/callback', require('./endpoints/oauth/callback'));
 app.delete('/callback', require('./endpoints/oauth/uninstall'));
 
 // Panel handlers
-app.all('/', jwtCheck(config.surfaceJwt), require('./endpoints/surface-render'));
+app.all(
+  "/",
+  jwtCheck(process.env.SURFACE_JWT),
+  require("./endpoints/surface-render")
+);
 
 // Debug endpoints
 app.get('/pipedrive-api-example/:userId/:companyId', require('./endpoints/oauth/api-example'));
 app.get('/db', require('./endpoints/db'));
 
 // Surface endpoints
-app.use('/todo/:userId/:companyId/:dealId', jwtCheck(config.surfaceJwt));
+app.use("/todo/:userId/:companyId/:dealId", jwtCheck(process.env.SURFACE_JWT));
 app.get('/todo/:userId/:companyId/:dealId', require('./endpoints/get-todo'));
 app.get('/todo/:userId/:companyId/:dealId/:recordId', require('./endpoints/get-todo'));
 app.post('/todo/:userId/:companyId/:dealId', require('./endpoints/create-todo'));
@@ -38,7 +42,7 @@ app.delete('/todo/:userId/:companyId/:dealId/:recordId', require('./endpoints/de
 
 // Embedded action
 // https://pipedrive.readme.io/docs/app-extensions-embedded-actions
-app.use('/embedded-action', jwtCheck(config.embeddedActionJwt));
+app.use("/embedded-action", jwtCheck(process.env.EMBEDED_JWT));
 
 app.get('/embedded-action', require('./endpoints/embedded-action'));
 app.post('/embedded-action', require('./endpoints/embedded-action-save'));

@@ -1,8 +1,8 @@
-const config = require('../../config');
+require("dotenv").config()
 const db = require('../../database/oauth');
 
 async function handler(req, res) {
-    const basicAuthHeader = Buffer.from(`${config.clientId}:${config.clientSecret}`).toString('base64');
+    const basicAuthHeader = Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`).toString('base64');
 
     if (`Basic ${basicAuthHeader}` !== req.headers.authorization) {
         res.status(401);

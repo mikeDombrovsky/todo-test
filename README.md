@@ -26,7 +26,7 @@ ngrok http 3000 --host-header=localhost
    3.1 "Custom panel" for deal details view. For URL provide the ngrok URL. Choose a JWT secret for the extension. \
    3.2 "JSON modal" for deal details view. For URL provide the ngrok URL with route `/embedded-action`. Choose a JWT secret for the embedded action. Upload `embedded-action-schema.json` as the embedded action schema.
 4. Save the app. Retrieve client id and secret from the "OAuth & access scopes" section.
-5. Open `config.js` and replace default values with your app specific values.
+5. Open `.env` and replace default values with your app specific values.
 6. Start the server with command `npm run start`.
 7. In the Developer Hub preview your app and press the "Install & test" button and go through OAuth flow.
 8. Go to deal details view and the Custom UI Extensions should load.
