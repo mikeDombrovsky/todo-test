@@ -7,7 +7,7 @@ async function handler(req, res) {
 
     try {
         const tokens = await req.apiClient.authorize(authCode);
-
+        console.log('tokens = ', tokens);
         const companyId = tokens.access_token.split(':')[0]; // access token has companyId:userId:hash structure
         const userId = tokens.access_token.split(':')[1]; // access token has companyId:userId:hash structure
 
