@@ -8,9 +8,7 @@ async function handler(req, res) {
     size: { height: 500 },
   });
 
-  res.json({
-    msg: "hello, modal is running",
-  });
+  res.sendFile(path.join(path.join(__dirname, "../build"), "index.html"));
 }
 
 module.exports = handler;
