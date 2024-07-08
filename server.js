@@ -60,7 +60,7 @@ app.get("/embedded-action", require("./endpoints/embedded-action"));
 app.post("/embedded-action", require("./endpoints/embedded-action-save"));
 
 app.use("/custom-modal", jwtCheck(process.env.CUSTOM_MODAL_JWT));
-app.get("/custom-modal", require("./endpoints/surface-render"));
+app.get("/custom-modal", require("./endpoints/custom-modal"));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
