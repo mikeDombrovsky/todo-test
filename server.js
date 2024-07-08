@@ -59,8 +59,8 @@ app.use("/embedded-action", jwtCheck(process.env.EMBEDED_ACTION_JWT));
 app.get("/embedded-action", require("./endpoints/embedded-action"));
 app.post("/embedded-action", require("./endpoints/embedded-action-save"));
 
-app.use("/custom-modal", jwtCheck(process.env.CUSTOM_MODAL_JWT));
-app.get("/custom-modal", require("./endpoints/custom-modal"));
+app.use("/custom-modal-sdk", jwtCheck(process.env.CUSTOM_MODAL_JWT));
+app.get("/custom-modal-sdk", require("./endpoints/custom-modal"));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
