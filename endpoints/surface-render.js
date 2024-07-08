@@ -1,7 +1,7 @@
 const path = require('path');
 
 async function handler(req, res) {
-    res.sendFile(path.join(path.join(__dirname, '../build'), 'index.html'));
+    res.send({msg:"ok"});
 }
 
 module.exports = handler;
