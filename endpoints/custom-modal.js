@@ -1,5 +1,5 @@
 // import AppExtensionsSDK from "@pipedrive/app-extensions-sdk";
-import "dotenv/config";
+// import "dotenv/config";
 
 async function handler(req, res) {
   // const sdk = await new AppExtensionsSDK({

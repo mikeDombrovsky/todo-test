@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       
     
-      {/* <TodoList /> */}
-      <h1>HELLO BRO</h1>
-      
+      <TodoList />
+      {/* <h1>HELLO BRO</h1> */}
+
     </div>
   );
 }
